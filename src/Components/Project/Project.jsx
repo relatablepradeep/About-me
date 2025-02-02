@@ -1,90 +1,123 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router'; // Corrected import from 'react-router-dom'
+import { X } from 'lucide-react';
+import {Link} from 'react-router'
 
-function Project() {
-    const Work = [
-        {
-            id: 1,
-            title: "Onicha",
-            description: "hiiii i am just making it randimely right now and i dont know what should i write",
-        },
-        {
-            id: 2,
-            title: "Onicha",
-            description: "hiiii i am just making it randimely right now and i dont know what should i write",
-        },
-        {
-            id: 3,
-            title: "Onicha",
-            description: "hiiii i am just making it randimely right now and i dont know what should i write",
-        },
-        {
-            id: 4,
-            title: "Onicha",
-            description: "hiiii i am just making it randimely right now and i dont know what should i write",
-        },
-        {
-            id: 5,
-            title: "Onicha",
-            description: "hiiii i am just making it randimely right now and i dont know what should i write",
-        },
-        {
-            id: 6,
-            title: "Onicha",
-            description: "hiiii i am just making it randimely right now and i dont know what should i write",
-        },
-    ];
+export default function ProjectGrid() {
+  const [expandedId, setExpandedId] = useState(null);
 
-    const [div, Setdiv] = useState({ width: 10, height: 10 });
+  const projects = [
+    { id: 1, name: "Apni Patshala", info: "A platform to provide quality education for all.", github: "/github/project1" },
+    { id: 2, name: "CryptoTracker", info: "Track real-time cryptocurrency prices & trends.", github: "/github/project2" },
+    { id: 3, name: "Task Manager", info: "A simple task management web app.", github: "/github/project3" },
+    { id: 4, name: "E-commerce App", info: "An online shopping platform with a smooth UI.", github: "/github/project4" },
+  ];
 
-    return (
-        <>
-            <section className="flex justify-center">
-                <div className="">
-                    
-                    <div className="top-15 text-xl flex items-center justify-center space-x-8"> 
-                        <button className="border-2 rounded-md border-black">
-                            ok
-                        </button>
+  const handleCardClick = (id) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
 
-                        <h3 className="text-8xl">My Work</h3>
+  return (
+    <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
+      {projects.map((project) => (
+        <div
+          key={project.id}
+          onClick={() => handleCardClick(project.id)}
+          className={`
+            transition-all duration-300 ease-in-out
+            ${expandedId === project.id ? 
+              'fixed top-0 left-0 w-full h-full z-50 m-0 rounded-none overflow-y-auto' : 
+              'w-full max-w-sm mx-auto rounded-lg h-[20rem]'}
+            bg-white shadow-lg p-4 relative border cursor-pointer
+            flex flex-col
+          `}
+        >
+          {/* Close Button - Only visible when expanded */}
+          {expandedId === project.id && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setExpandedId(null);
+              }}
+              className="absolute top-4 right-4 p-2 bg-gray-100 rounded-full hover:bg-gray-200"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          )}
 
-                        <button className="border-2 rounded-md border-black">
-                            ok
-                        </button>
-                    </div>
+          {/* GitHub Button */}
+          <Link
+            to={project.github}
+            onClick={(e) => e.stopPropagation()}
+            className={`
+              ${expandedId === project.id ? 'hidden' : 'absolute'} 
+              top-2 right-2 bg-gray-800 text-white text-xs px-3 py-1 rounded-md
+              hover:bg-gray-700 transition-colors
+            `}
+          >
+            GitHub
+          </Link>
 
-                    <div className="flex  hover:bg-white">
+          {/* Project Name */}
+          <h2 className={`
+            font-bold text-center
+            ${expandedId === project.id ? 'text-2xl mt-12' : 'text-lg mt-6'}
+          `}>
+            {project.name}
+          </h2>
 
-                    <div className=" m-10 flex justify-center  text-white ">
-                        <div className="bg-black h-96 w-[500px]   ">{Work.title}</div>
-                    </div>
+          {/* Info Section */}
+          <p className={`
+            text-gray-600 text-center
+            ${expandedId === project.id ? 'text-base mt-6' : 'text-sm mt-3'}
+          `}>
+            {project.info}
+          </p>
 
-                    <div className=" m-10">
-                        <div className="bg-black h-96 w-[500px]   ">{Work.title}</div>
-                    </div>
-
-                    <div className=" m-10">
-                        <div className="bg-black h-96 w-[500px]   ">{Work.id}</div>
-                    </div>
-
-                    <div className=" m-10">
-                        <div className="bg-black h-96 w-[500px] "></div>
-                    </div>
-
-                    <div className=" m-10">
-                        <div className="bg-black h-96 w-[500px] "></div>
-                    </div>
-
-                    <div className=" m-10">
-                        <div className="bg-black h-96 w-[500px] "></div>
-                    </div>
-
-                    </div>
+          {/* Expanded Content - Only visible when expanded */}
+          {expandedId === project.id && (
+            <div className="mt-8 flex-grow">
+              <div className="prose max-w-none">
+                <h3 className="text-xl font-semibold mb-4">Project Details</h3>
+                <p className="text-gray-600">
+                  This is the expanded content area where you can write detailed information 
+                  about your project. You can add multiple paragraphs, lists, code snippets, 
+                  or any other content you'd like to showcase.
+                </p>
+                <div className="mt-6 space-y-4">
+                  <h4 className="text-lg font-semibold">Features</h4>
+                  <p className="text-gray-600">
+                    Add your project features and detailed descriptions here. The space
+                    will automatically scroll if the content exceeds the viewport height.
+                  </p>
                 </div>
-            </section>
-        </>
-    );
-}
+              </div>
+            </div>
+          )}
 
-export default Project;
+          {/* Bottom Section - Buttons */}
+          <div className={`
+            flex justify-between
+            ${expandedId === project.id ? 'mt-8' : 'mt-6'}
+          `}>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleCardClick(project.id);
+              }}
+              className="px-3 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              {expandedId === project.id ? 'Close Details' : 'Read More'}
+            </button>
+            <Link
+              href={project.github}
+              onClick={(e) => e.stopPropagation()}
+              className="px-3 py-2 bg-gray-800 text-white text-sm rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              GitHub
+            </Link>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
