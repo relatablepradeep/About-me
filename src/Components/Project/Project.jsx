@@ -6,12 +6,12 @@ export default function ProjectGrid() {
   const [expandedId, setExpandedId] = useState(null);
 
   const projects = [
-    { id: 1, name: "Apni Patshala", info: "A platform to provide quality education for all.", github: "/github/project1" },
-    { id: 2, name: "CryptoTracker", info: "Track real-time cryptocurrency prices & trends.", github: "/github/project2" },
-    { id: 3, name: "Task Manager", info: "A simple task management web app.", github: "/github/project3" },
-    { id: 4, name: "E-commerce App", info: "An online shopping platform with a smooth UI.", github: "/github/project4" },
+    { id: 1, name: "Apni Patshala", info: "Quality education platform.", github: "/github/project1" },
+    { id: 2, name: "Onicha", info: "Comic books, manga, anime shorts, and trailers, all in one platform.", github: "/github/project2" },
+    { id: 3, name: "Portfolio", info: "Showcase my skills.", github: "/github/project3" },
+    { id: 4, name: "Aurleaf", info: "Ayurvedic medical platform.", github: "/github/project4" },
   ];
-
+  
   const handleCardClick = (id) => {
     setExpandedId(expandedId === id ? null : id);
   };
@@ -79,15 +79,12 @@ export default function ProjectGrid() {
               <div className="prose max-w-none">
                 <h3 className="text-xl font-semibold mb-4">Project Details</h3>
                 <p className="text-gray-600">
-                  This is the expanded content area where you can write detailed information 
-                  about your project. You can add multiple paragraphs, lists, code snippets, 
-                  or any other content you'd like to showcase.
+                  coming soon
                 </p>
                 <div className="mt-6 space-y-4">
                   <h4 className="text-lg font-semibold">Features</h4>
                   <p className="text-gray-600">
-                    Add your project features and detailed descriptions here. The space
-                    will automatically scroll if the content exceeds the viewport height.
+                   coming soon
                   </p>
                 </div>
               </div>
