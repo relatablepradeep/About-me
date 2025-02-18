@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router";
 import Slide from '../../Animation/Text/Slide'
-import Div from '../../Animation/Div/Div'
+import Project from '../Project/Project'
 
 
 
@@ -201,6 +201,8 @@ function Home() {
           </div>
         </div>
       </div>
+
+      <Project></Project>
 
 
       
