@@ -27,7 +27,7 @@ function Nav() {
                         </Link>
                     </div>
 
-                    {/* Desktop Navigation */}
+                    {/*desktop navigation*/}
                     <div className="hidden lg:flex items-center space-x-8">
                         <ul className="flex space-x-8">
                             <li>
