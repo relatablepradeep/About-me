@@ -1,72 +1,39 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React from 'react';
+import { Link } from 'react-router';
 
 function Footer() {
     return (
+        <footer className="bg-gray-100 border-gray-100 shadow-xl p-8 w-full rounded-t-xl">
+            <div className="flex flex-col items-center text-center max-w-7xl mx-auto px-4">
+                
+              
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold whitespace-nowrap">
+                    Got a killer idea?
+                </h1>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mt-2 whitespace-nowrap">
+                    Let's bring it to life!
+                </h1>
 
-
-        <footer className="bg-gray-100 border-gray-100 shadow-xl  bottom-0 p-4  h-96 w-full border-y rounded-t-xl">
-            <div className="flex  relative ">
-
-                <div className="absolute left-96">
-                    <h1 className="text-7xl  ml-80 font-semibold">Got a killer idea?</h1>
-                    <h1 className="text-7xl  ml-72 font-semibold">Let's bring it to life!</h1>
-
-
-
-
-                    <button className="relative ml-96 left-8 inline-flex items-center justify-center  mt-10 overflow-hidden text-lg font-medium text-black border-2 border-black rounded-md group focus:outline-none focus:ring-4 focus:ring-gray-500">
-                        <Link
-                            to="#"
-                            className="relative inline-flex items-center px-3 pl-5 py-3 overflow-hidden text-black transition-all duration-300 ease-in-out rounded-md group hover:text-white"
-                        >
-                            {/* Expanding background */}
-                            <span className="absolute left-0 block w-full h-0 bg-black transition-all duration-500 ease-in-out group-hover:h-full top-1/2 group-hover:top-0"></span>
-
-                            {/* SVG Arrow animation */}
-                            <span className="absolute right-0.5 flex items-center justify-center w-8 h-8 transform translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0">
-                                <svg
-                                    className="w-5 h-5 text-black group-hover:text-white"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                                    ></path>
-                                </svg>
-                            </span>
-
-                            {/* Button Text */}
-                            <span className="relative pr-4 transition-colors duration-300 ease-in-out group-hover:text-white">
+               
+                <div className="flex flex-row flex-wrap justify-center items-center gap-3 sm:gap-5 mt-6">
+                    
+                  
+                    <button className="relative overflow-hidden font-medium text-sm sm:text-base md:text-lg border-2 border-black rounded-lg focus:outline-none focus:ring-4 focus:ring-gray-500">
+                        <Link to="#" className="relative inline-block px-3 sm:px-4 md:px-6 py-2 sm:py-3 transition-all duration-300 ease-in-out group">
+                            <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-black group-hover:w-full ease"></span>
+                            <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-black group-hover:w-full ease"></span>
+                            <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-black group-hover:h-full ease"></span>
+                            <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-black group-hover:h-full ease"></span>
+                            <span className="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
+                            <span className="relative transition-colors duration-300 delay-200 group-hover:text-white ease">
                                 Wanna Chat?
                             </span>
                         </Link>
                     </button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <button className="relative left-16 overflow-hidden font-medium text-black text-lg mt-10 border-2 border-black rounded-lg focus:outline-none focus:ring-4 focus:ring-gray-500">
-                        <Link
-                            to="#"
-                            className="relative inline-block px-5 py-3 text-lg transition-all duration-300 ease-in-out group"
-                        >
+                 
+                    <button className="relative overflow-hidden font-medium text-sm sm:text-base md:text-lg border-2 border-black rounded-lg focus:outline-none focus:ring-4 focus:ring-gray-500">
+                        <Link to="#" className="relative inline-block px-3 sm:px-4 md:px-6 py-2 sm:py-3 transition-all duration-300 ease-in-out group">
                             <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-black group-hover:w-full ease"></span>
                             <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-black group-hover:w-full ease"></span>
                             <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-black group-hover:h-full ease"></span>
@@ -78,35 +45,17 @@ function Footer() {
                         </Link>
                     </button>
 
-
-                    <div className="text-black text-2xl ml-96  mt-5 hover:text-blue-500">
-                    <Link  to="https://x.com/dakkupradeep" className=" ml-36  ">
-                    follow me on x
-                    </Link>
-
-                    </div>
-
-                      
-                         
-                        
-
-
                 </div>
 
-
-
-
-
-
-
-
+             
+                <div className="mt-6 text-lg sm:text-xl md:text-2xl hover:text-blue-500">
+                    <Link to="https://x.com/dakkupradeep" target="_blank" rel="noopener noreferrer">
+                        Follow me on X
+                    </Link>
+                </div>
             </div>
-
-
-
         </footer>
-    )
+    );
 }
 
-
-export default Footer
+export default Footer;

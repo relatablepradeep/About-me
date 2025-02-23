@@ -3,18 +3,26 @@ import React, { useEffect, useRef, useState } from 'react';
 const Slide = () => {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        // When element comes into view
         if (entry.isIntersecting) {
+          // Clear any existing timeout
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+          }
           setIsVisible(true);
         } else {
-          setIsVisible(false); // Reset animation when out of view
+          // When element goes out of view
+          setIsVisible(false);
         }
       },
-      {
-        threshold: 0.5 // Trigger when element is 50% visible
+      { 
+        threshold: 0.1,
+        rootMargin: '-50px' // Adds a small margin to trigger animation earlier
       }
     );
 
@@ -22,25 +30,37 @@ const Slide = () => {
       observer.observe(elementRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, []);
 
   return (
-    <div 
+    <div
       ref={elementRef}
-      className="h-screen w-full flex items-center justify-center"
+      className="w-full flex justify-center items-center h-48 overflow-hidden"
     >
-      <div className="relative w-full flex justify-center items-center overflow-hidden bottom-96  ">
-        <div 
-          className={`transform-gpu text-7xl font-bold text-blue-500 transition-all duration-1000 ${
-            isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+      <div className="relative flex gap-3 sm:gap-4 md:gap-6">
+        {/* Project Text */}
+        <div
+          className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-blue-600 transform transition-all duration-1000 ease-in-out ${
+            isVisible
+              ? 'translate-x-0 opacity-100'
+              : '-translate-x-[400%] opacity-0'
           }`}
         >
           Project
         </div>
-        <div 
-          className={`transform-gpu text-7xl font-bold text-green-500 ml-2 transition-all duration-1000 ${
-            isVisible ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+
+        {/* Section Text */}
+        <div
+          className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-green-600 transform transition-all duration-1000 ease-in-out ${
+            isVisible
+              ? 'translate-x-0 opacity-100'
+              : 'translate-x-[400%] opacity-0'
           }`}
         >
           Section

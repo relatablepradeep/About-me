@@ -41,49 +41,49 @@ function Home() {
 
 
 
-     {/* Left Section */}
-     <div className="w-full lg:w-1/2 p-2 sm:p-4 flex flex-col justify-center">
-        <section className="relative pt-4 sm:pt-8 lg:pt-16">
-          <div className="flex flex-col items-start px-2 sm:px-4 md:px-12 relative   sm:bottom-48 lg:bottom-16 lg:px-16 xl:px-20">
-            {/* Introduction Section */}
-            <div className="relative w-full">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-inter leading-tight tracking-tight">
-                Hi! I Am
-              </h1>
-              <button className="mt-2 sm:mt-4 lg:mt-0 lg:absolute lg:translate-x-0 lg:top-5
-                                rounded-lg p-2 sm:p-3 md:p-4 
-                                bg-blue-600 
-                                text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 
-                                text-white border-2 font-montserrat hover:bg-blue-700 transition-colors
-                                lg:left-54 xl:left-60 2xl:left-96">
-                Frontend
-              </button>
-            </div>
-
-            {/* About Me Section */}
-            <div className="mt-8 sm:mt-10 lg:mt-16 w-full">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold mb-2 sm:mb-4 lg:mb-6 tracking-wide">About Me</h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-inter leading-relaxed text-gray-700">
-                I'm Pradeep from Uttarakhand, India. I enjoy programming and exploring new technologies. I've participated in around 10 hackathons, winning 3 of them along the way.
-              </p>
-            </div>
-
-            {/* What I Do Section */}
-            <div className="mt-8 sm:mt-10 lg:mt-16 w-full">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold mb-2 sm:mb-4 lg:mb-6 tracking-wide">What I do?</h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-inter leading-relaxed text-gray-700">
-                Currently, I'm working on my personal projects, including Ayurlife (medical), Oppa (manga/comic), and a college website.
-              </p>
-            </div>
-          </div>
-        </section>
+   
+<div className="w-full lg:w-1/2 p-2 sm:p-4 flex flex-col justify-center">
+  <section className="relative pt-4 sm:pt-8 lg:pt-16">
+    <div className="flex flex-col items-start px-2 sm:px-4 md:px-12 relative sm:bottom-48 lg:bottom-16 lg:px-16 xl:px-20">
+      
+     
+      <div className="relative w-full flex items-center gap-2 sm:gap-4 flex-wrap">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-inter leading-tight tracking-tight">
+          Hi! I Am
+        </h1>
+        <button className="rounded-lg px-3 sm:px-4 md:px-5 py-1 sm:py-2 md:py-3 bg-blue-600 
+                          text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white 
+                          border-2 font-montserrat hover:bg-blue-700 transition-colors">
+          Frontend
+        </button>
       </div>
 
+     
+      <div className="mt-8 sm:mt-10 lg:mt-16 w-full">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold mb-2 sm:mb-4 lg:mb-6 tracking-wide">About Me</h1>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-inter leading-relaxed text-gray-700">
+          I'm Pradeep from Uttarakhand, India. I enjoy programming and exploring new technologies. I've participated in around 10 hackathons, winning 3 of them along the way.
+        </p>
+      </div>
+
+     
+      <div className="mt-8 sm:mt-10 lg:mt-16 w-full">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold mb-2 sm:mb-4 lg:mb-6 tracking-wide">What I do?</h1>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-inter leading-relaxed text-gray-700">
+          Currently, I'm working on my personal projects, including Ayurlife (medical), Oppa (manga/comic), and a college website.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</div>
 
 
 
 
-      {/* Right Section with Image */}
+
+
+ 
      <aside className="w-full lg:w-1/2 p-2 sm:p-4 text-white font-inter bg-[#FFDAB3] relative min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-screen flex flex-col">
 
 <Animation></Animation>
@@ -145,37 +145,19 @@ function Home() {
 
 
 
-
-    <aside className="relative h-20 min-h-[100px] bg-gray-900 w-full  ">
-  <div className=" ">
-    <Slide></Slide>
-  </div>
-</aside>
-
-
-
-
-
   
+    <div className="bg-gray-900">
+    <Slide />
+    </div>
+
+    <div className="bg-gray-900 flex flex-col items-center justify-center h-screen">
+  <Stack />
+</div>
 
 
-    <div className="flex flex-col justify-center items-center h-20  min-h-[500px] bg-gray-900 w-full">
 
-   
 
-      <div>
 
-      
-        
-        <Stack>
-       
-        </Stack>
-      </div>
-
-      
-      
-      
-      </div>  
    
 
 
