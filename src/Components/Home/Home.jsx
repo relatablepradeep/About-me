@@ -169,31 +169,28 @@ function Home() {
 
 
 
+<div className="w-full bg-gray-900 h-auto py-12 px-4 sm:px-6 md:px-20 flex justify-between items-center text-white flex-wrap gap-x-5">
 
-
-{/* Footer Section */}
-<div className="w-full bg-gray-900 h-auto py-12 px-6 md:px-20 flex flex-wrap justify-between items-center">
-  
   {/* Left Section */}
-  <div className="text-white text-left w-full sm:w-1/3">
-    <h1 className="text-2xl sm:text-3xl">Project</h1>
-    <h2 className="text-xl sm:text-2xl">Statistics 2025</h2>
-    <button className="mt-6 px-4 sm:px-6 py-2 sm:py-3 text-white border-2 border-yellow-600 bg-yellow-600 rounded-md text-md sm:text-lg">
+  <div className="flex flex-col items-start text-left">
+    <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl">Project</h1>
+    <h2 className="text-sm sm:text-base md:text-xl lg:text-2xl mt-1">Statistics 2025</h2>
+    <button className="mt-3 px-2 sm:px-4 md:px-6 py-1 sm:py-2 text-white border-2 border-yellow-600 bg-yellow-600 rounded-md text-xs sm:text-sm md:text-lg lg:text-xl">
       <Link to="#">Know More</Link>
     </button>
   </div>
 
-  {/* Center Section */}
-  <div className="text-white w-full sm:w-1/3 flex flex-col items-center text-center">
-    <h1 className="text-2xl sm:text-3xl">Code. Create. Deliver.</h1>
-    <div className="flex gap-4 mt-4 sm:mt-6">
-      <button className="px-4 sm:px-6 py-2 sm:py-3 text-white border-2 border-[#A64D79] bg-[#A64D79] text-md sm:text-lg rounded-md">
+  {/* Right Section */}
+  <div className="flex flex-col items-start text-left">
+    <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl">Code. Create. Deliver.</h1>
+    <div className="flex gap-2 sm:gap-3 md:gap-5 mt-3">
+      <button className="px-2 sm:px-4 md:px-6 py-1 sm:py-2 text-white border-2 border-[#A64D79] bg-[#A64D79] text-xs sm:text-sm md:text-lg lg:text-xl rounded-md">
         <Link to="#">Hire Me</Link>
       </button>
       
-      <button className="px-4 sm:px-6 py-2 sm:py-3 border-2 border-[#2A3335] bg-[#2A3335] text-white text-md sm:text-lg rounded-md flex items-center gap-2">
+      <button className="px-2 sm:px-4 md:px-6 py-1 sm:py-2 border-2 border-[#2A3335] bg-[#2A3335] text-white text-xs sm:text-sm md:text-lg lg:text-xl rounded-md flex items-center gap-2">
         <Link to="#">
-          <svg xmlns="http://www.w3.org/2000/svg" className="animate-bounce w-5 sm:w-6 h-5 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg xmlns="http://www.w3.org/2000/svg" className="animate-bounce w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m0 0l-7-7m7 7l7-7" />
           </svg>
           CV
@@ -201,6 +198,13 @@ function Home() {
       </button>
     </div>
   </div>
+
+</div>
+
+
+
+
+
 
   
   {/* <div className="hidden sm:flex flex-col w-1/3 md:w-1/4 text-white">
@@ -218,7 +222,7 @@ function Home() {
     </div>
   </div> */}
 
-</div>
+
 
 
 
