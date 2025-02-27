@@ -22,7 +22,7 @@ function Nav() {
 
                     {/* Logo */}
                     <div className="flex items-center justify-center lg:justify-start">
-                        <Link to="#" className="text-2xl lg:text-3xl font-medium text-black hover:text-orange-700">
+                        <Link to="/" className="text-2xl lg:text-3xl font-medium text-black hover:text-orange-700">
                             Pradeep
                         </Link>
                     </div>
@@ -76,7 +76,7 @@ function Nav() {
                     {/* Contact Button */}
                     <div className="flex items-center">
                         <Link 
-                            to="#" 
+                            to="/chat" 
                             className="text-lg lg:text-xl bg-transparent border-2 border-black text-black hover:bg-orange-700 hover:border-orange-700 hover:text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg transition-colors"
                         >
                             Let's Chat
