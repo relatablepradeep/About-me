@@ -21,19 +21,22 @@ import AdminChat from "./Components/Chat/AdminChat";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+    <>
+    {/* Main Layout (With Header & Footer) */}
     <Route path="/" element={<Root />}>
-      {/* Main Pages */}
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="project" element={<Project />} />
       <Route path="service" element={<Service />} />
-
-      {/* Chat Pages */}
-      <Route path="chat" element={<ChatLayout />}>
-        <Route index element={<UserChat />} />
-        <Route path="admin" element={<AdminChat />} />
-      </Route>
+      
     </Route>
+
+    {/* Chat Layout */}
+    <Route path="/chat" element={<ChatLayout />}>
+      <Route index element={<UserChat />} />
+      <Route path="admin" element={<AdminChat />} />
+    </Route>
+  </>
   )
 );
 
