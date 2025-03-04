@@ -1,8 +1,11 @@
 import { NavLink, Link } from 'react-router';
 import React, { useState } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 function Nav() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { loginWithRedirect } = useAuth0();
 
     return (
         <header className="shadow sticky top-0 z-50 bg-white">
@@ -75,12 +78,12 @@ function Nav() {
 
                     {/* Contact Button */}
                     <div className="flex items-center">
-                        <Link 
-                            to="/chat" 
+                        <button
+                            onClick={() => loginWithRedirect()} 
                             className="text-lg lg:text-xl bg-transparent border-2 border-black text-black hover:bg-orange-700 hover:border-orange-700 hover:text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg transition-colors"
                         >
                             Let's Chat
-                        </Link>
+                        </button>
                     </div>
 
                     {/* Mobile Menu */}
