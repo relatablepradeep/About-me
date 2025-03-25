@@ -1,8 +1,1 @@
-
-# About-me
-This is not just a typical portfolio where I talk about myself or my projects. Instead, this portfolio is a self-dedicated project that showcases how good I am compared to others.
-=======
-
-
-
-npm init journey
+Welcome to my innovative portfolio! Unlike traditional portfolios, mine offers real-time communication through chat, ensuring direct interaction and immediate engagement. Explore my projects and skills while chatting live with me for a dynamic experience
