@@ -1,14 +1,13 @@
 import React from 'react'
-import Left from '../../Animation/Move/Left'
-import Right from '../../Animation/Move/Right'
+
+import Scrolling from '../../Animation/Scrolling/Scrolling'
 
 
 export default function Service(){
   return(
     <>
 
-    <Left></Left>
-    {/* <Right></Right> */}
+   <Scrolling/>
     
     
     </>

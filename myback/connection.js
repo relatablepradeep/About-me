@@ -14,4 +14,15 @@ const connect= async ()=>{
     }
 };
 
-export default connect;
+
+// const MessageConnect=async()=>{
+//     try{
+//         const MessConnected=await mongoose.connect(`${process.env.url}/Message`);
+//         console.log(`connected messaging database`);
+//     }catch(error){
+//         console.log(`connected to faild ${error}`)
+
+//     }
+// }
+
+export {connect};

@@ -170,15 +170,15 @@ function Home() {
         </aside>  
       </div>
 
-      <div className="bg-gray-900">
+      <div className="bg-green-50">
         <Slide />
       </div>
 
-      <div className="bg-gray-900 flex flex-col items-center justify-center h-screen">
+      {/* <div className=" flex  "> */}
         <Stack />
-      </div>
+      {/* </div> */}
 
-      <div className="w-full bg-gray-900 h-auto py-12 px-4 sm:px-6 md:px-20 flex justify-between items-center text-white flex-wrap gap-x-5">
+      <div className="w-full bg-green-400 h-auto py-12 px-4 sm:px-6 md:px-20 flex justify-between items-center text-white flex-wrap gap-x-5">
         {/* Left Section */}
         <div className="flex flex-col items-start text-left">
           <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl">Project</h1>
