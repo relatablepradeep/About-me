@@ -7,6 +7,7 @@ import {
   createRoutesFromElements,
 } from "react-router"; 
 import { Auth0Provider } from "@auth0/auth0-react";
+import Ayurleaf from './Components/Project/Ayurleaf'
 
 import "./index.css";
 import Root from "./Root";
@@ -28,6 +29,8 @@ const router = createBrowserRouter(
         <Route path="about" element={<About />} />
         <Route path="project" element={<Project />} />
         <Route path="service" element={<Service />} />
+        <Route path="/project/ayurleaf" element={<Ayurleaf />} />
+
       </Route>
 
       {/* Chat Layout */}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router';
 import Aurleaf1 from '../../Photos/Aurleaf1.png';
 import aurleaf2 from '../../Photos/aurLeaf2.png';
 import aurleaf3 from '../../Photos/aurleaf4.png';
@@ -13,7 +14,7 @@ const Stack = () => {
   const lastUpdateTimeRef = useRef(Date.now());
   const backgroundUpdateIntervalRef = useRef(2000); // 2 seconds in ms
   
-  // Projects with background-url strings - removed titles and descriptions
+  // Projects with background-url strings and route paths for navigation
   const projects = [
     {
       backgroundUrls: [
@@ -23,6 +24,7 @@ const Stack = () => {
       ],
       githubLink: 'https://github.com/relatablepradeep/Aurleaf',
       liveLink: 'https://ayurleaf.vercel.app/',
+      path: '/projects/ayurleaf',
     },
     {
       backgroundUrls: [
@@ -31,6 +33,7 @@ const Stack = () => {
       ],
       githubLink: '#taskmanager-github',
       liveLink: '#taskmanager-live',
+      path: '/projects/taskmanager',
     },
     {
       backgroundUrls: [
@@ -40,6 +43,7 @@ const Stack = () => {
       ],
       githubLink: '#ecommerce-github',
       liveLink: '#ecommerce-live',
+      path: '/projects/ecommerce',
     },
     {
       backgroundUrls: [
@@ -48,6 +52,7 @@ const Stack = () => {
       ],
       githubLink: '#fitness-github',
       liveLink: '#fitness-live',
+      path: '/projects/fitness',
     },
   ];
 
@@ -109,11 +114,13 @@ const Stack = () => {
     };
   }, [isPaused, projects]);
 
-  const handlePrev = () => {
+  const handlePrev = (e) => {
+    e.stopPropagation(); // Prevent clicking through to the Link
     setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
   };
 
-  const handleNext = () => {
+  const handleNext = (e) => {
+    e.stopPropagation(); // Prevent clicking through to the Link
     setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
   };
 
@@ -146,9 +153,10 @@ const Stack = () => {
           const bgUrl = project.backgroundUrls[bgIndex];
           
           return (
-            <div
+            <Link
               key={index}
-              className={`absolute inset-0 transition-all duration-1000 ease-in-out
+              to={project.path}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out block cursor-pointer
                 ${
                   currentIndex === index
                     ? 'opacity-100 translate-x-0 scale-100'
@@ -176,6 +184,7 @@ const Stack = () => {
                 <div className="flex justify-between items-center p-3 md:p-4 bg-white shadow-inner">
                   <a
                     href={project.githubLink}
+                    onClick={(e) => e.stopPropagation()} // Prevent triggering the Link navigation
                     className="flex items-center gap-2 text-gray-800 hover:text-yellow-600 bg-white hover:bg-gray-100 px-3 py-2 md:px-4 md:py-2 rounded-lg shadow transition-all hover:shadow-md text-sm md:text-base"
                   >
                     <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -185,6 +194,7 @@ const Stack = () => {
                   </a>
                   <a
                     href={project.liveLink}
+                    onClick={(e) => e.stopPropagation()} // Prevent triggering the Link navigation
                     className="flex items-center gap-2 text-white bg-yellow-600 hover:bg-yellow-700 px-3 py-2 md:px-4 md:py-2 rounded-lg shadow transition-all hover:shadow-md text-sm md:text-base"
                   >
                     <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -195,7 +205,7 @@ const Stack = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
 
@@ -204,7 +214,10 @@ const Stack = () => {
           {projects.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent triggering the Link navigation
+                setCurrentIndex(index);
+              }}
               className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
                 currentIndex === index ? 'bg-yellow-600 w-4 md:w-6' : 'bg-gray-300 hover:bg-yellow-400'
               }`}
