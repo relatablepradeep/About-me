@@ -1,90 +1,87 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { createServer } from "http";
-import { Server } from "socket.io";
-import { connect } from "./connection.js";
-import Email from './Route/email.route.js';
+import {connect} from "./connection.js";
 
+import Email from './Route/email.route.js'
 
-
-import mongoose from 'mongoose'
-import  http from 'http';
-import { initializeSocket } from './socket';
-
-// Import routes
-const authRoutes = require('./routes/auth');
-const userRoutes = require('./routes/user');
-
-
-
-// Import routes
-import  authRoutes from './routes/auth';
-import  userRoutes = require('./routes/user');
-const messageRoutes = require('./routes/message');
-
-// const app = express();
-const server = http.createServer(app);
-
-// Initialize Socket.IO
-const io = initializeSocket(server);
-
-// Middleware
-app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true
-}));
-app.use(express.json());
-
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/messages', messageRoutes);
-
-// Connect to MongoDB
-mongoose.connect(process.env.Url)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Could not connect to MongoDB', err));
-
-// Start server
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
-
-
-
-
-
-
-
-dotenv.config({ path: "./.env" });
+dotenv.config({ path: "./.env" }); 
 
 const app = express();
-const httpServer = createServer(app);
-const io = new Server(httpServer, {
-  cors: {
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST"]
-  }
-});
 
+// Middleware
 app.use(cors());
 app.use(express.json());
-app.use("/email", Email);
 
-// Mongo connection
+// Run Express API on 3005
 const apiPort = process.env.API_PORT || 3005;
+
 connect()
   .then(() => {
-    httpServer.listen(apiPort, () => {
-      console.log(`Server running on http://localhost:${apiPort}`);
+    app.listen(apiPort, () => {
+      console.log(`API Server is running on port ${apiPort}`);
     });
   })
   .catch((err) => {
-    console.error(`MongoDB connection failed: ${err}`);
+    console.error(`MongoDB is not connected: ${err}`);
   });
 
+app.get("/api/", (req, res) => {
+  res.send("Hey Pradeep");
+});
 
 
+
+app.use('/email',Email)
+
+// ⚡ Create separate WebSocket server on 4000
+// const server = http.createServer();
+// const io = new Server(server, {
+//     cors: {
+//         origin: "http://localhost:5173", // Change this to your frontend URL
+//         methods: ["GET", "POST"]
+//     }
+// });
+
+const users = {};
+
+// 🔒 Authenticate WebSocket connection
+// io.use((socket, next) => {
+//   const token = socket.handshake.auth?.token;
+//   if (!token) return next(new Error('Authentication error'));
+
+//   jwt.verify(token, process.env.OAUTH_SECRET, (err, decoded) => {
+//       if (err) return next(new Error('Invalid token'));
+
+//       socket.user = decoded;
+//       users[socket.user.email] = socket.id; // Store user socket ID
+//       next();
+//   });
+// });
+
+// 🎯 Handle real-time messages
+// io.on('connection', (socket) => {
+//   console.log(`User connected: ${socket.user.email}`);
+
+//   socket.on('userMessage', (message) => {
+//       console.log(`Message from ${socket.user.email}:`, message);
+//       io.emit('adminMessage', { user: socket.user.email, message }); // Send to admin
+//   });
+
+//   socket.on('adminMessage', ({ email, message }) => {
+//       const userSocketId = users[email]; // Get user's socket ID
+//       if (userSocketId) {
+//           io.to(userSocketId).emit('userMessage', { message, from: 'Admin' });
+//       }
+//   });
+
+//   socket.on('disconnect', () => {
+//       console.log(`User disconnected: ${socket.user.email}`);
+//       delete users[socket.user.email];
+//   });
+// });
+
+// ✅ Start WebSocket Server on 4000
+app.listen(4000, () => {
+    console.log('WebSocket Server is running on port 4000');
+});

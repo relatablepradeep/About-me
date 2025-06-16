@@ -5,6 +5,8 @@ import Scrolling from '../../Animation/Scrolling/Scrolling'
 import Animation from '../../Animation/3D/Animation'
 import Stack from '../../Animation/Stack/Stack'
 import axios from 'axios';
+import Text from "../../Animation/TypeWriter/Text";
+import Resume from '../../Photos/Pradeep1.pdf'
 
 function Home() {
   const [email, setEmail] = useState('');
@@ -54,6 +56,36 @@ function Home() {
     }
   };
 
+
+
+//Email
+
+  const handleClick = () => {
+    const email = 'relatablepradeep@gmail.com';
+    const subject = encodeURIComponent('Hello from your site!');
+    const body = encodeURIComponent('Hi there,\n\nI would like to get in touch with you.');
+
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  };
+
+  //CV
+
+
+    const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = Resume; 
+    link.download = 'pradeep_Resume'; 
+    link.click();
+  };
+
+
+
+
+
+
+
+
+
   return (
     <>
       {/* Notification Popup */}
@@ -93,37 +125,28 @@ function Home() {
         </div>
       )}
 
+
+
+
+      
+
       <div className="min-h-screen w-full flex flex-col lg:flex-row font-poppins overflow-x-hidden">
-        <div className="w-full lg:w-1/2 p-2 sm:p-4 flex flex-col justify-center">
-          <section className="relative pt-4 sm:pt-8 lg:pt-16">
-            <div className="flex flex-col items-start px-2 sm:px-4 md:px-12 relative sm:bottom-48 lg:bottom-16 lg:px-16 xl:px-20">
-              <div className="relative w-full flex items-center gap-2 sm:gap-4 flex-wrap">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-inter leading-tight tracking-tight">
-                  Hi! I Am
-                </h1>
-                <button className="rounded-lg px-3 sm:px-4 md:px-5 py-1 sm:py-2 md:py-3 bg-blue-600 
-                                  text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white 
-                                  border-2 font-montserrat hover:bg-blue-700 transition-colors">
-                  Frontend
-                </button>
-              </div>
 
-              <div className="mt-8 sm:mt-10 lg:mt-16 w-full">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold mb-2 sm:mb-4 lg:mb-6 tracking-wide">About Me</h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-inter leading-relaxed text-gray-700">
-                  I'm Pradeep from Uttarakhand, India. I enjoy programming and exploring new technologies. I've participated in around 10 hackathons, winning 3 of them along the way.
-                </p>
-              </div>
 
-              <div className="mt-8 sm:mt-10 lg:mt-16 w-full">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold mb-2 sm:mb-4 lg:mb-6 tracking-wide">What I do?</h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-inter leading-relaxed text-gray-700">
-                  Currently, I'm working on my personal projects, including Ayurlife (medical), Oppa (manga/comic), and a college website.
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
+
+
+      <Text/>
+
+
+
+
+
+
+
+
+
+
+
 
         <aside className="w-full lg:w-1/2 p-2 sm:p-4 text-white font-inter bg-[#FFDAB3] relative min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-screen flex flex-col">
           <Animation></Animation>
@@ -170,18 +193,18 @@ function Home() {
         </aside>  
       </div>
 
-      <div className="bg-gray-900">
+      <div className="bg-gradient-to-r from-amber-100 to-red-100">
         <Slide />
       </div>
 
-      <div className="bg-gray-900 flex flex-col items-center justify-center h-screen">
+      <div className=" flex flex-col items-center justify-center">
         <Stack />
       </div>
 
-      <div className="w-full bg-gray-900 h-auto py-12 px-4 sm:px-6 md:px-20 flex justify-between items-center text-white flex-wrap gap-x-5">
+      <div className="w-full bg-gradient-to-r from-amber-100 to-red-100 h-auto py-12 px-4 sm:px-6 md:px-20 flex justify-between items-center text-white flex-wrap gap-x-5">
         {/* Left Section */}
-        <div className="flex flex-col items-start text-left">
-          <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl">Project</h1>
+        <div className="flex flex-col items-start text-left text-gray-600">
+          <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl ">Project</h1>
           <h2 className="text-sm sm:text-base md:text-xl lg:text-2xl mt-1">Statistics 2025</h2>
           <button className="mt-3 px-2 sm:px-4 md:px-6 py-1 sm:py-2 text-white border-2 border-yellow-600 bg-yellow-600 rounded-md text-xs sm:text-sm md:text-lg lg:text-xl">
             <Link to="#">Know More</Link>
@@ -190,13 +213,13 @@ function Home() {
 
         {/* Right Section */}
         <div className="flex flex-col items-start text-left">
-          <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl">Code. Create. Deliver.</h1>
+          <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl text-gray-600">Code. Create. Deliver.</h1>
           <div className="flex gap-2 sm:gap-3 md:gap-5 mt-3">
-            <button className="px-2 sm:px-4 md:px-6 py-1 sm:py-2 text-white border-2 border-[#A64D79] bg-[#A64D79] text-xs sm:text-sm md:text-lg lg:text-xl rounded-md">
+            <button  onClick={handleClick} className="px-2 sm:px-4 md:px-6 py-1 sm:py-2 text-white border-2 border-[#A64D79] bg-[#A64D79] text-xs sm:text-sm md:text-lg lg:text-xl rounded-md">
               <Link to="#">Hire Me</Link>
             </button>
             
-            <button className="px-2 sm:px-4 md:px-6 py-1 sm:py-2 border-2 border-[#2A3335] bg-[#2A3335] text-white text-xs sm:text-sm md:text-lg lg:text-xl rounded-md flex items-center gap-2">
+            <button onClick={handleDownload} className="px-2 sm:px-4 md:px-6 py-1 sm:py-2 border-2 border-[#2A3335] bg-[#2A3335] text-white text-xs sm:text-sm md:text-lg lg:text-xl rounded-md flex items-center gap-2">
               <Link to="#">
                 <svg xmlns="http://www.w3.org/2000/svg" className="animate-bounce w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m0 0l-7-7m7 7l7-7" />
