@@ -154,7 +154,7 @@ const Text = () => {
             
             {/* Hero Section with Greeting and Button  */}
             <div className="w-full">
-              <div className="flex items-center  gap-2 sm:gap-3 md:gap-4 flex-wrap sm:flex-nowrap">
+              <div className="flex items-center m-2  gap-2 sm:gap-5 md:gap-4 flex-wrap sm:flex-nowrap">
                 <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold sm:pl-5 leading-tight tracking-tight whitespace-nowrap">
                   {displayedText.greeting}
                 </h1>
