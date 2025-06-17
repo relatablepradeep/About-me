@@ -27,7 +27,6 @@ const Text = () => {
     greeting: "Hi! I Am",
     aboutTitle: "About Me",
     aboutContent: "Hey, I'm Pradeep, and I come from the world of code ,Programming isn't just a skill for me—it meets my needs and keeps me motivated  I've participated in over 8 hackathons. I lost 5 of them, and honestly, I hate losing—especially when I see the smiles on others' faces as I fall short. But that only fuels me to come back stronger every time",
-
   };
 
   const typeWriter = (text, field, speed = 50) => {
@@ -94,7 +93,6 @@ const Text = () => {
       await typeButtonText(buttonTexts[currentIndex]);
       await new Promise(resolve => setTimeout(resolve, 2000)); 
       
-    
       if (currentIndex < buttonTexts.length - 1) {
         await new Promise(resolve => setTimeout(resolve, 200));
         await typeButtonText(buttonText + "sorry");
@@ -103,10 +101,8 @@ const Text = () => {
         await new Promise(resolve => setTimeout(resolve, 800));
       }
       
-     
       await eraseButtonText();
       await new Promise(resolve => setTimeout(resolve, 300));
-      
       
       currentIndex = (currentIndex + 1) % buttonTexts.length;
     }
@@ -124,6 +120,10 @@ const Text = () => {
       // Show button and start cycling text
       setShowButton(true);
       cycleButtonText(); // This runs infinitely
+      
+      // Only continue with other sections on desktop
+      const isDesktop = window.innerWidth >= 1024;
+      if (!isDesktop) return;
       
       await new Promise(resolve => setTimeout(resolve, 1000));
       
@@ -147,15 +147,15 @@ const Text = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+    <div className="w-full lg:min-h-screen lg:bg-gray-50 lg:p-8">
       <div className="max-w-7xl mx-auto">
-        <section className="pt-8 sm:pt-12 lg:pt-16">
+        <section className="lg:pt-16">
           <div className="flex flex-col items-start space-y-8 sm:space-y-12 lg:space-y-16">
             
-            {/* Hero Section with Greeting and Button */}
+            {/* Hero Section with Greeting and Button  */}
             <div className="w-full">
-              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap sm:flex-nowrap">
-                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight tracking-tight whitespace-nowrap">
+              <div className="flex items-center  gap-2 sm:gap-3 md:gap-4 flex-wrap sm:flex-nowrap">
+                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold sm:pl-5 leading-tight tracking-tight whitespace-nowrap">
                   {displayedText.greeting}
                 </h1>
                 {showButton && (
@@ -168,24 +168,24 @@ const Text = () => {
               </div>
             </div>
 
-            {/* About Section */}
-            <div className="w-full">
+            {/* About Section - Hidden on mobile */}
+            <div className="w-full hidden lg:block">
               <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 tracking-wide">
                 {displayedText.aboutTitle}
               </h2>
-              <div className="w-full">
+              <div className="w-full lg:w-1/2">
                 <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-relaxed text-gray-700">
                   {displayedText.aboutContent}
                 </p>
               </div>
             </div>
 
-            {/* Work Section */}
-            <div className="w-full">
+            {/* Work Section - Hidden on mobile */}
+            <div className="w-full hidden lg:block">
               <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 tracking-wide">
                 {displayedText.workTitle}
               </h2>
-              <div className="w-full">
+              <div className="w-full lg:w-1/2">
                 <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-relaxed text-gray-700">
                   {displayedText.workContent}
                 </p>

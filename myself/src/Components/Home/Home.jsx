@@ -142,75 +142,178 @@ function Home() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       
 
-      <div className="h-auto  w-full flex  lg:flex-row sm:flex-row font-poppins overflow-x-hidden">
+      <div className="h-auto  w-full flex  lg:flex-row  font-poppins overflow-x-hidden">
 
 
 
 
-      <Text/>
+        {/*deskotp*/}
 
 
+{/* Desktop/Tablet - hidden on mobile */}
+<div className="hidden lg:block">
+  <Text/>
+</div>
 
-
-
-
-
-
-
-
-
-
-        <aside className="max-w-5xl lg:w-1/2 p-2 sm:p-4  text-white font-inter bg-[#FFDAB3] relative  sm:min-h-[500px] md:min-h-[600px] lg:min-h-screen flex flex-col">
-               <Element name="section1">
-
-         
-          <Animation></Animation>
-
-          </Element>
-          
-          <div className="mb-6 sm:mb-10 lg:mb-0 mt-6 sm:mt-10 lg:mt-0 w-full">
-            <div className="relative w-full">
-              <div className="border-white shadow-md border-2 bg-white rounded-md
-                            relative lg:absolute lg:bottom-12 xl:bottom-20 2xl:bottom-32
-                            h-16 sm:h-20 md:h-24 lg:h-28 w-full mx-auto">
-                <div className="flex items-center h-full">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full h-full text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl
-                              text-black px-4 border-white rounded-md
-                              placeholder:text-center placeholder:text-xs sm:placeholder:text-sm md:placeholder:text-base lg:placeholder:text-lg
-                              focus:outline-none focus:ring-0 focus:border-white"
-                    placeholder="Want to contact me? Drop your email here"
-                    onKeyPress={(e) => {
-                      if (e.key === 'Enter') handleEmail();
-                    }}
-                  />
-                  <button 
-                    onClick={handleEmail} 
-                    className="absolute right-2 top-1/2 -translate-y-1/2
-                               border-white focus:border-gray-900 
-                               h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20
-                               bg-white rounded-md flex items-center justify-center
-                               hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center justify-center h-full w-full">
-                      <img
-                        src="/icons8-arrow-50.png"
-                        className="h-6 sm:h-8 md:h-10 lg:h-12 xl:h-14"
-                        alt="Submit"
-                      />
-                    </div>
-                  </button>
-                </div>
-              </div>
+<aside className="hidden lg:flex max-w-5xl lg:w-1/2 p-2 text-white font-inter bg-[#FFDAB3] relative md:min-h-[600px] lg:min-h-screen flex-col">
+  <Element name="section1">
+    <Animation></Animation>
+  </Element>
+  
+  <div className="mb-6 lg:mb-0 mt-6 lg:mt-0 w-full">
+    <div className="relative w-full">
+      <div className="border-white shadow-md border-2 bg-white rounded-md
+                    relative lg:absolute lg:bottom-12 xl:bottom-20 2xl:bottom-32
+                    h-16 md:h-24 lg:h-28 w-full mx-auto">
+        <div className="flex items-center h-full">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full h-full md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl
+                      text-black px-4 border-white rounded-md
+                      placeholder:text-center placeholder:text-xs md:placeholder:text-base lg:placeholder:text-lg
+                      focus:outline-none focus:ring-0 focus:border-white"
+            placeholder="Want to contact me? Drop your email here"
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') handleEmail();
+            }}
+          />
+          <button 
+            onClick={handleEmail} 
+            className="absolute right-2 top-1/2 -translate-y-1/2
+                       border-white focus:border-gray-900 
+                       h-10 w-10 md:h-16 md:w-16 lg:h-20 lg:w-20
+                       bg-white rounded-md flex items-center justify-center
+                       hover:bg-gray-100 transition-colors"
+          >
+            <div className="flex items-center justify-center h-full w-full">
+              <img
+                src="/icons8-arrow-50.png"
+                className="h-6 md:h-10 lg:h-12 xl:h-14"
+                alt="Submit"
+              />
             </div>
-          </div>
-        </aside>  
+          </button>
+        </div>
       </div>
+    </div>
+  </div>
+</aside>
+
+
+
+
+
+
+        {/*mobile */}
+
+
+
+
+        {/* Mobile version - only visible on small screens */}
+{/* Mobile - only visible on small screens */}
+<div className="lg:hidden w-full min-h-screen bg-[#FFDAB3] flex flex-col justify-center items-center p-4">
+
+  <Text/>
+  <div className="w-full max-w-sm">
+    <Animation />
+  </div>
+  
+  <div className="w-full max-w-sm mt-8">
+    <div className="relative w-full">
+      <div className="border-white shadow-md border-2 bg-white rounded-md h-14 w-full">
+        <div className="flex items-center h-full">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full h-full text-black px-3 border-white rounded-md
+                      placeholder:text-center placeholder:text-sm
+                      focus:outline-none focus:ring-0 focus:border-white"
+            placeholder="Want to contact me? Drop your email here"
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') handleEmail();
+            }}
+          />
+          <button
+            onClick={handleEmail}
+            className="absolute right-2 top-1/2 -translate-y-1/2
+                      border-white focus:border-gray-900
+                      h-8 w-8 bg-white rounded-md flex items-center justify-center
+                      hover:bg-gray-100 transition-colors"
+          >
+            <img
+              src="/icons8-arrow-50.png" 
+              className="h-5"
+              alt="Submit"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <Element name="section2">
 
