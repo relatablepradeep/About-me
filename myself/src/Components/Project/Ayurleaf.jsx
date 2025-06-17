@@ -64,7 +64,7 @@ export default function AurleafFullPage() {
   // Sample images - replace with your own images
   const images = [
     { url: Aurleaf1, alt: "Aurleaf Image 1" },
-    { url: aurleaf2, alt: "Aurleaf Image 2" },
+    // { url: aurleaf2, alt: "Aurleaf Image 2" },
     { url: aurleaf3, alt: "Aurleaf Image 3" },
     { url: aurleaf4, alt: "Aurleaf Image 4" },
   ];

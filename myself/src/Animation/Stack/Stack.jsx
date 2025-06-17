@@ -19,7 +19,7 @@ const Stack = () => {
     {
       backgroundUrls: [
         Aurleaf1, 
-        aurleaf2, 
+         
         aurleaf3,
       ],
       githubLink: 'https://github.com/relatablepradeep/Aurleaf',
