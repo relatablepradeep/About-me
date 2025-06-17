@@ -8,6 +8,7 @@ const Text = () => {
     workTitle: '',
     workContent: ''
   });
+  
 
   const [currentSection, setCurrentSection] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
@@ -25,7 +26,7 @@ const Text = () => {
   const texts = {
     greeting: "Hi! I Am",
     aboutTitle: "About Me",
-    aboutContent: "Hey, I’m Pradeep, and I come from the world of code ,Programming isn’t just a skill for me—it meets my needs and keeps me motivated  I’ve participated in over 8 hackathons. I lost 5 of them, and honestly, I hate losing—especially when I see the smiles on others’ faces as I fall short. But that only fuels me to come back stronger every time",
+    aboutContent: "Hey, I'm Pradeep, and I come from the world of code ,Programming isn't just a skill for me—it meets my needs and keeps me motivated  I've participated in over 8 hackathons. I lost 5 of them, and honestly, I hate losing—especially when I see the smiles on others' faces as I fall short. But that only fuels me to come back stronger every time",
 
   };
 
@@ -91,22 +92,22 @@ const Text = () => {
     while (true) {
       // Type the current text
       await typeButtonText(buttonTexts[currentIndex]);
-      await new Promise(resolve => setTimeout(resolve, 2000)); // Display for 2 seconds
+      await new Promise(resolve => setTimeout(resolve, 2000)); 
       
-      // Add "sorry" after typing (except for the last one in cycle)
+    
       if (currentIndex < buttonTexts.length - 1) {
         await new Promise(resolve => setTimeout(resolve, 200));
-        await typeButtonText(buttonText + ", sorry");
+        await typeButtonText(buttonText + "sorry");
         await new Promise(resolve => setTimeout(resolve, 800));
       } else {
         await new Promise(resolve => setTimeout(resolve, 800));
       }
       
-      // Erase the text
+     
       await eraseButtonText();
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // Move to next text (loop back to 0 after last one)
+      
       currentIndex = (currentIndex + 1) % buttonTexts.length;
     }
   };
@@ -146,61 +147,54 @@ const Text = () => {
   }, []);
 
   return (
-    <div className="w-full lg:w-1/2 p-2 sm:p-4 flex flex-col justify-center min-h-screen bg-gray-50">
-      <section className="relative pt-4 sm:pt-8 lg:pt-16">
-        <div className="flex flex-col items-start px-2 sm:px-4 md:px-12 relative sm:bottom-48 lg:bottom-16 lg:px-16 xl:px-20">
-          <div className="relative w-full flex items-center gap-2 sm:gap-4 flex-wrap min-h-[80px] sm:min-h-[100px] lg:min-h-[120px]">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight tracking-tight">
-              {displayedText.greeting}
-              {isTyping && currentSection === 0 && (
-                <span className="animate-pulse">|</span>
-              )}
-            </h1>
-            {showButton && (
-              <button className="rounded-lg px-3 sm:px-4 md:px-5 py-1 sm:py-2 md:py-3 bg-blue-600 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white border-2 font-semibold hover:bg-blue-700 transition-colors animate-fadeIn min-w-[200px] sm:min-w-[250px] md:min-w-[300px] lg:min-w-[350px]">
-                {buttonText}
-                {isButtonTyping && (
-                  <span className="animate-pulse">|</span>
+    <div className="w-full min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+      <div className="max-w-7xl mx-auto">
+        <section className="pt-8 sm:pt-12 lg:pt-16">
+          <div className="flex flex-col items-start space-y-8 sm:space-y-12 lg:space-y-16">
+            
+            {/* Hero Section with Greeting and Button */}
+            <div className="w-full">
+              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap sm:flex-nowrap">
+                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight tracking-tight whitespace-nowrap">
+                  {displayedText.greeting}
+                </h1>
+                {showButton && (
+                  <button className="flex-shrink-0 rounded-lg px-2 xs:px-3 sm:px-4 md:px-5 py-1 xs:py-1.5 sm:py-2 md:py-3 bg-blue-600 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white border-2 font-semibold hover:bg-blue-700 transition-colors animate-fadeIn min-w-0 text-center">
+                    <span className="block truncate">
+                      {buttonText}
+                    </span>
+                  </button>
                 )}
-              </button>
-            )}
-          </div>
-
-          <div className="mt-8 sm:mt-10 lg:mt-16 w-full">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 lg:mb-6 tracking-wide min-h-[40px] sm:min-h-[50px] lg:min-h-[60px]">
-              {displayedText.aboutTitle}
-              {isTyping && displayedText.greeting && !displayedText.aboutContent && (
-                <span className="animate-pulse">|</span>
-              )}
-            </h1>
-            <div className="min-h-[120px] sm:min-h-[140px] lg:min-h-[160px]">
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-relaxed text-gray-700">
-                {displayedText.aboutContent}
-                {isTyping && displayedText.aboutTitle && !displayedText.workTitle && (
-                  <span className="animate-pulse">|</span>
-                )}
-              </p>
+              </div>
             </div>
-          </div>
 
-          <div className="mt-8 sm:mt-10 lg:mt-16 w-full">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 lg:mb-6 tracking-wide min-h-[40px] sm:min-h-[50px] lg:min-h-[60px]">
-              {displayedText.workTitle}
-              {isTyping && displayedText.aboutContent && !displayedText.workContent && (
-                <span className="animate-pulse">|</span>
-              )}
-            </h1>
-            <div className="min-h-[120px] sm:min-h-[140px] lg:min-h-[160px]">
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-relaxed text-gray-700">
-                {displayedText.workContent}
-                {isTyping && displayedText.workTitle && (
-                  <span className="animate-pulse">|</span>
-                )}
-              </p>
+            {/* About Section */}
+            <div className="w-full">
+              <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 tracking-wide">
+                {displayedText.aboutTitle}
+              </h2>
+              <div className="w-full">
+                <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-relaxed text-gray-700">
+                  {displayedText.aboutContent}
+                </p>
+              </div>
             </div>
+
+            {/* Work Section */}
+            <div className="w-full">
+              <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 tracking-wide">
+                {displayedText.workTitle}
+              </h2>
+              <div className="w-full">
+                <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-relaxed text-gray-700">
+                  {displayedText.workContent}
+                </p>
+              </div>
+            </div>
+
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <style jsx>{`
         @keyframes fadeIn {
@@ -209,6 +203,15 @@ const Text = () => {
         }
         .animate-fadeIn {
           animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 475px) {
+          .xs\\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+          .xs\\:text-base { font-size: 1rem; line-height: 1.5rem; }
+          .xs\\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+          .xs\\:px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+          .xs\\:py-1\\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
         }
       `}</style>
     </div>

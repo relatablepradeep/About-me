@@ -1,11 +1,22 @@
-import { NavLink, Link } from 'react-router';
+import { NavLink,Link } from 'react-router';
 import React, { useState } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link as ScrollLink, Element } from 'react-scroll';
 
 
 function Nav() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { loginWithRedirect } = useAuth0();
+
+
+
+
+   
+
+
+
+
+
 
     return (
         <header className="shadow sticky top-0 z-50 bg-white">
@@ -34,44 +45,48 @@ function Nav() {
                     <div className="hidden lg:flex items-center space-x-8">
                         <ul className="flex space-x-8">
                             <li>
-                                <NavLink
-                                    to="/"
-                                    className={({ isActive }) =>
-                                        `text-lg ${isActive ? "text-orange-700" : "text-gray-700"} hover:text-orange-700 transition-colors`
-                                    }
-                                >
-                                    Home
-                                </NavLink>
+                                         <ScrollLink
+  to="section1"
+  smooth={true}
+  duration={100}
+  offset={-80} // optional: adjust if you have a sticky header
+  className="text-lg text-gray-700 hover:text-orange-700 transition-colors cursor-pointer"
+>
+  Home
+</ScrollLink>
                             </li>
                             <li>
-                                <NavLink
-                                    to="/Project"
-                                    className={({ isActive }) =>
-                                        `text-lg ${isActive ? "text-orange-700" : "text-gray-700"} hover:text-orange-700 transition-colors`
-                                    }
-                                >
-                                    Project
-                                </NavLink>
+                               <ScrollLink
+  to="section2"
+  smooth={true}
+  duration={100}
+  offset={-80} // optional: adjust if you have a sticky header
+  className="text-lg text-gray-700 hover:text-orange-700 transition-colors cursor-pointer"
+>
+  Project
+</ScrollLink>
                             </li>
                             <li>
-                                <NavLink
-                                    to="/github"
-                                    className={({ isActive }) =>
-                                        `text-lg ${isActive ? "text-orange-700" : "text-gray-700"} hover:text-orange-700 transition-colors`
-                                    }
-                                >
-                                    About
-                                </NavLink>
+                              <ScrollLink
+  to="section3"
+  smooth={true}
+  duration={100}
+  offset={-80} // optional: adjust if you have a sticky header
+  className="text-lg text-gray-700 hover:text-orange-700 transition-colors cursor-pointer"
+>
+  About Me
+</ScrollLink>
                             </li>
                             <li>
-                                <NavLink
-                                    to="/service"
-                                    className={({ isActive }) =>
-                                        `text-lg ${isActive ? "text-orange-700" : "text-gray-700"} hover:text-orange-700 transition-colors`
-                                    }
-                                >
-                                    Service
-                                </NavLink>
+                                <ScrollLink
+  to="section4"
+  smooth={true}
+  duration={100}
+  offset={-80} // optional: adjust if you have a sticky header
+  className="text-lg text-gray-700 hover:text-orange-700 transition-colors cursor-pointer"
+>
+  Service
+</ScrollLink>
                             </li>
                         </ul>
                     </div>

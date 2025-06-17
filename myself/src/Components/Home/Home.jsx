@@ -7,6 +7,8 @@ import Stack from '../../Animation/Stack/Stack'
 import axios from 'axios';
 import Text from "../../Animation/TypeWriter/Text";
 import Resume from '../../Photos/Pradeep1.pdf'
+import {Element} from 'react-scroll'
+import Service from "../Service/Service";
 
 function Home() {
   const [email, setEmail] = useState('');
@@ -15,6 +17,7 @@ function Home() {
     message: '',
     type: '' // 'success', 'error', or 'warning'
   });
+
 
   // Function to show notification
   const showNotification = (message, type) => {
@@ -88,6 +91,17 @@ function Home() {
 
   return (
     <>
+
+    
+
+
+
+
+
+
+
+
+
       {/* Notification Popup */}
       {notification.show && (
         <div className={`fixed top-5 right-5 z-50 rounded-lg shadow-lg px-6 py-4 max-w-md transform transition-all duration-500 animate-fade-in-down
@@ -130,7 +144,7 @@ function Home() {
 
       
 
-      <div className="min-h-screen w-full flex flex-col lg:flex-row font-poppins overflow-x-hidden">
+      <div className="h-auto  w-full flex  lg:flex-row sm:flex-row font-poppins overflow-x-hidden">
 
 
 
@@ -148,8 +162,13 @@ function Home() {
 
 
 
-        <aside className="w-full lg:w-1/2 p-2 sm:p-4 text-white font-inter bg-[#FFDAB3] relative min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-screen flex flex-col">
+        <aside className="max-w-5xl lg:w-1/2 p-2 sm:p-4  text-white font-inter bg-[#FFDAB3] relative  sm:min-h-[500px] md:min-h-[600px] lg:min-h-screen flex flex-col">
+               <Element name="section1">
+
+         
           <Animation></Animation>
+
+          </Element>
           
           <div className="mb-6 sm:mb-10 lg:mb-0 mt-6 sm:mt-10 lg:mt-0 w-full">
             <div className="relative w-full">
@@ -193,16 +212,28 @@ function Home() {
         </aside>  
       </div>
 
+      <Element name="section2">
+
       <div className="bg-gradient-to-r from-amber-100 to-red-100">
         <Slide />
       </div>
+
+      </Element>
+
+
+  
 
       <div className=" flex flex-col items-center justify-center">
         <Stack />
       </div>
 
+   
+<Element Name='section3'> 
+
+
       <div className="w-full bg-gradient-to-r from-amber-100 to-red-100 h-auto py-12 px-4 sm:px-6 md:px-20 flex justify-between items-center text-white flex-wrap gap-x-5">
         {/* Left Section */}
+         
         <div className="flex flex-col items-start text-left text-gray-600">
           <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl ">Project</h1>
           <h2 className="text-sm sm:text-base md:text-xl lg:text-2xl mt-1">Statistics 2025</h2>
@@ -210,6 +241,7 @@ function Home() {
             <Link to="#">Know More</Link>
           </button>
         </div>
+       
 
         {/* Right Section */}
         <div className="flex flex-col items-start text-left">
@@ -229,7 +261,21 @@ function Home() {
             </button>
           </div>
         </div>
+
+       
       </div>
+
+        </Element>
+
+        <Element  Name='section4'>
+
+             <Service/>
+
+
+        </Element>
+
+
+     
 
       <Scrolling/>
     </>
