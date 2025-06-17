@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 
 // Import your images
 import Aurleaf1 from '../../Photos/Aurleaf1.png'
-import aurleaf2 from '../../Photos/aurLeaf2.png';
+// import aurleaf2 from '../../Photos/aurLeaf2.png';
 import aurleaf3 from '../../Photos/aurleaf3.png';
 import aurleaf4 from '../../Photos/aurleaf4.png';
 
