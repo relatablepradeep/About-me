@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router';
 import Aurleaf1 from '../../Photos/Aurleaf1.png';
-import aurleaf2 from '../../Photos/aurLeaf2.png';
+// import aurleaf2 from '../../Photos/aurLeaf2.png';
 import aurleaf3 from '../../Photos/aurleaf4.png';
 
 const Stack = () => {
