@@ -26,34 +26,17 @@ const Stack = () => {
       liveLink: 'https://ayurleaf.vercel.app/',
       path: '/projects/ayurleaf',
     },
-    {
-      backgroundUrls: [
-        '/Photos/taskmanager.png',
-        '/Photos/taskmanager.png',
-      ],
-      githubLink: '#taskmanager-github',
-      liveLink: '#taskmanager-live',
-      path: '/projects/taskmanager',
-    },
-    {
-      backgroundUrls: [
-        '/Photos/ecommerce1.png',
-        '/Photos/ecommerce2.png',
-        '/Photos/ecommerce1.png',
-      ],
-      githubLink: '#ecommerce-github',
-      liveLink: '#ecommerce-live',
-      path: '/projects/ecommerce',
-    },
-    {
-      backgroundUrls: [
-        '/Photos/fitness.png',
-        '/Photos/fitness.png',
-      ],
-      githubLink: '#fitness-github',
-      liveLink: '#fitness-live',
-      path: '/projects/fitness',
-    },
+   
+ 
+    // {
+    //   backgroundUrls: [
+    //     '/Photos/fitness.png',
+    //     '/Photos/fitness.png',
+    //   ],
+    //   githubLink: '#fitness-github',
+    //   liveLink: '#fitness-live',
+    //   path: '/projects/fitness',
+    // },
   ];
 
   // Initialize background state for each project
